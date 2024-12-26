@@ -28,13 +28,13 @@ jobs:
       - name: Terraform Plan
         working-directory: ./terraform
         env:
-          TF_VAR_db_master_username: ${{ secrets.DB_MASTER_USERNAME }}
-          TF_VAR_db_master_password: ${{ secrets.DB_MASTER_PASSWORD }}
+          TF_VAR_db_master_username: ${{ secrets.DOCDB_USERNAME }}
+          TF_VAR_db_master_password: ${{ secrets.DOCDB_PASSWORD }}
         run: terraform plan
 
       - name: Terraform Apply
         working-directory: ./terraform
         env:
-          TF_VAR_db_master_username: ${{ secrets.DB_MASTER_USERNAME }}
-          TF_VAR_db_master_password: ${{ secrets.DB_MASTER_PASSWORD }}
+          TF_VAR_db_master_username: ${{ secrets.DOCDB_USERNAME }}
+          TF_VAR_db_master_password: ${{ secrets.DOCDB_PASSWORD }}
         run: terraform apply -auto-approve
